@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ飞车</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        ul,ol,li{list-style: none;}
+        imgz{display: block;}
+        a{text-decoration: none; color: #464646;}
+        body{font-family: Arial,'宋体'} 
+        /* 清除原本样式 */
+
+        .l{float: left;}
+        .r{float: right;}
+        .container{width: 1000px; margin:0 auto; }  /* 版心 */
+        .container-fluid{width: 100%;}    /* 通栏 */
+        .clear:after{content: "";display: block; clear: both;}  /*清除浮动 使用伪类after*/
+
+        #head{height: 45px; width: 100%;}
+        .head_logo{display: block;}
+        .head_ad{display: block;}
+        .czsh{font-size: 16px;margin-top: 15px; margin-left: 350px;padding-left: 20px;  position: relative;}
+        .czsh img{position: absolute;left: -35px;top: -7px;z-index: -1;}
+        .ranking{font-size: 16px;margin-top: 15px;margin-left: 25px;}
+        #content{width: 100%;height: 780px;}
+        #content li{font-size: 12px;margin-top: 10px;text-align: center; font-weight: 400;}
+        #content a:hover{color: rgb(255, 115, 0);text-decoration:underline; }
+        #content a{color: white;}
+        #page{width: 100%;height: 1593px;background: url(./guanwang.jpg) no-repeat center 0;background-color: #f9f9f9;}
+
+        .nav{width: 100px;height: 108px;}
+        .ctlogo{width: 130px;height: 110px; margin: 0 auto;}
+        .ctlogo img{width: 100%;height: 100%;margin-top: 15px; }
+        .nav1{width: 100% ;height: 60px;background: url(./nav.png) no-repeat center 0;}
+        .zz{width: 100%;height: 200px; background: linear-gradient(to bottom,rgba(0, 0, 0, 0.6) 0,rgb(0,0,0,0.05))}
+        #banner{width: 1020px;height: 276px; background:url(./top.png) no-repeat ;}
+        #link{height: 235px;}
+        #link a{width: 463px; height: 100%; display: block; margin: 0 auto;}
+        #banner .banner_left{width: 238px; height: 310px; background: url(./down_user_spr.png) no-repeat;margin: -19px 0 0 8px ;}
+        .banner_left_t{width: 238px;height: 123px;text-align: center;}
+        .banner_left_t p{width: 89px;height: 44px;background: url(./down_user_spr.png) no-repeat -254px 0;margin: 44px auto; 
+        text-indent: -9999px; overflow: hidden;}
+        .banner_left_b{width: 238px;height: 179px;}
+        .banner_left_b p{font-size: 12px;color: white; text-align: center;margin-top: 15px;}
+        .banner_left_b span{color: #4df9d6;}
+        .banner_left_b span:hover{color: #4df9d6;text-decoration: underline;}
+        .banner_left_b img{width: 50px;height: 50px; border-radius:50%; border:#283257 4px solid; margin-left: 95px;}
+        .banner_list{width: 503px;height: 269px; margin-left: 4px;margin-top: 4px;overflow: hidden;}
+        .banner_list_ul{width: 2100px;height: 259px;}
+        .banner_list_ul li{width: 499px;height: 256px;float: left;}
+        .banner_center{width: 503px;height: 269px;position: relative;}
+        .zz1{width: 100%;height: 40px;background: rgba(0, 0, 0,.5);border-top:1px #514b55 solid; position: absolute;
+        bottom: 0px;left: 0px;}
+        .zz1_ul{text-align: center; }
+        .zz1 li{display:inline-block;width: 17px;height:18px;background: url(./top.png) no-repeat -602px -298px; cursor: pointer;}
+        .zz1 li:first-child{display:inline-block;width: 17px;height:18px;background: url(./top.png) no-repeat -579px -298px;
+        position: relative;}
+        .banner_left-btn{width: 15px;height: 21px; position: absolute;left: 10px;top: 10px;
+        background: url(./top.png) no-repeat -539px -298px; cursor: pointer;}
+        .banner_left-btn:hover{width: 15px;height: 21px; position: absolute;left: 10px;top: 10px;
+        background: url(./top.png) no-repeat -539px -327px; cursor: pointer;}
+        .banner_right-btn{width: 15px;height: 21px; position: absolute;right: 10px;top: 10px;
+        background: url(./top.png) no-repeat -554px -298px; cursor: pointer;}
+        .banner_right-btn:hover{width: 15px;height: 21px; position: absolute;right: 10px;top: 10px;
+        background: url(./top.png) no-repeat -554px -327px; cursor: pointer;}
+        .banner_right{width: 209px;height: 255px;}
+        .banner_right img{width: 100%; height: 100%;margin-top: 12px;margin-left: 10px;}
+        .message_left{width: 228px;height: 846px;border: #d6d6d9 1px solid;position: relative;margin-bottom: 100px;}
+        .message_left-top{width: 207px; height: 123px; background: url(./inside_bar.png) no-repeat 0 -136px ;
+        margin: 10px auto;position: relative;}
+        .logo2{width: 35px;height: 38px;background:url(./inside_bar.png) no-repeat 0 -265px ;position: absolute;left: 35px;top: 10px;}
+        .logo3{width: 35px;height: 38px;background:url(./inside_bar.png) no-repeat -41px -265px;position: absolute;left: 35px;top: 75px;}
+        .border-top{width: 229px;height: 19px; background: url(./inside_bar.png) no-repeat 0 0; position: absolute;left: 0;top: -14px;}
+        .border-bottom{width: 229px;height: 19px; background: url(./inside_bar.png) no-repeat 0 -19px; position: absolute;
+        left: 0;bottom: -18px;}
+        .message_left-center{width: 208px;height: 88px;background: #efeff1;margin: 0 auto;border-radius: 15%;margin-top: 15px;}
+        .message_left-center ul{width: 208px;height: 88px;}
+        .message_left-center li{width: 50%;  font-size: 14px;color:  #3E3F54;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;text-align: center;float: left;margin-top: 17px;}
+        .message_left-center li:hover{width: 50%;  font-size: 14px;color:  #3E3F54;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;text-align: center;float: left;margin-top: 17px; text-decoration: underline;}
+        .message_left-bottom{width: 208px;height: 190px;background: #efeff1;margin: 15px auto;border-radius: 15px;}
+        .message_left-bottom li{width: 50%;font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;float: left;text-align: center;
+        margin-top: 18px;}
+        .message_left-bottom li:hover{width: 50%;font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;float: left;text-align: center;
+        margin-top: 18px;text-decoration: underline;}
+        .kfzx{width: 229px;height: 60px;background: url(./inside_bar.png) no-repeat 0 -40px;}
+        .message_right{margin-left: 10px;}
+        .message_left-cfzx{width: 208px;height: 156px;background: #efeff1;margin: 1px auto;border-radius: 15px;}
+        .message_left-cfzx li{width: 50%;font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;float: left;text-align: center;
+        margin-top: 18px;}
+        .message_left-cfzx li:hover{width: 50%;font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;float: left;text-align: center;
+        margin-top: 18px;text-decoration: underline;}
+        .qqkf{width: 207px;height: 47px;background: url(./inside_bar.png) no-repeat 0 -307px;margin: auto;}
+        .qqkf:hover{width: 207px;height: 47px;background: url(./inside_bar.png) no-repeat 0 -307px;margin: auto;opacity: 0.7;}
+        .zd1{width: 207px;height: 47px;background: url(./inside_bar.png) no-repeat 0 -355px;margin: auto;margin-top: 5px;
+        font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;position: relative;}
+        .zd1 span{position: absolute;left: 40px;top: 12px;}
+        .zd2{width: 207px;height: 47px;background: url(./inside_bar.png) no-repeat 0 -355px;margin: auto;
+        font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;position: relative;}
+        .zd2 span{position: absolute;left: 40px;top: 12px;}
+        .title1{width: 100%;height: 36px;margin-top: 10px;}
+        .title1 li{display: block; width: 93px;height: 36px;float: left;text-align: center;font-size: 14px;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;}
+        .title1 li:hover{display: block; width: 93px;height: 36px;float: left;text-align: center;font-size: 14px;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1; color: red;}
+        .news_title{width: 100%;height: 35px;font-size: 1.17em;border-bottom:1px solid #dee2e6;
+        font-family:\5FAE\8F6F\96C5\9ED1;margin-left: 10px;position: relative; }
+        .news_title a{font-size: 8px;position: absolute;right: 0;bottom: 0;font-family: \5FAE\8F6F\96C5\9ED1;
+        color: grey;font-weight: bold;}
+        .news_content {width: 100%;height: 182px;}
+        .start1{font-family: \5FAE\8F6F\96C5\9ED1;font-size:  8px;margin-left: 15px;}
+        .news_content a{margin-left: 10px;font-family: \5FAE\8F6F\96C5\9ED1;font-size:  8px;}
+        .news_content a:hover{margin-left: 25px;font-family: \5FAE\8F6F\96C5\9ED1;font-size: 8px;
+        color:blue;text-decoration: underline;}
+        .news_content li{width: 100%; position: relative;margin-top: 5px;}
+        .date1{position: absolute;right: 0;font-family: \5FAE\8F6F\96C5\9ED1;font-size:  8px;}
+        .message_rightmore{width: 212px;height: 534px;margin-left: 20px;}
+        .title_activity{width: 100%;height: 35px;border-bottom:1px solid #dee2e6;font-size: 1.17em;
+        font-family: \5FAE\8F6F\96C5\9ED1;margin-left: 10px;
+        position: relative;}
+        .photo_activity{margin-top: 10px;margin-left: 20px;}
+        .competition_title{width: 100%;height: 35px;border-bottom:1px solid #dee2e6;font-size: 1.17em;
+        font-family: \5FAE\8F6F\96C5\9ED1;margin-left: 10px;
+        position: relative;}
+        .title2 li{display: block; width: 155px;height: 36px;float: left;text-align: center;font-size: 14px;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;margin-top: 10px;}
+        .title2 li:hover{display: block; width: 155px;height: 36px;float: left;text-align: center;font-size: 14px;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;margin-top: 10px;color: blue;}
+        .competition-content{width: 478px;height:183px;}
+        .competition-photo{margin-left: 10px;width: 155px;}
+        .competition-article{width: 310px;height: 124px;}
+        .competition-article ul{width: 310px;height: 124px;margin-top: 50px;}
+        .competition-article li{position: relative;margin-top: 5px;}
+        
+        .date2{position: absolute;right: 0;font-family: \5FAE\8F6F\96C5\9ED1;font-size:  8px;}
+        .competition-article a{margin-left: 15px;font-family: \5FAE\8F6F\96C5\9ED1;font-size:  8px;}
+        .competition-article a:hover{margin-left: 25px;font-family: \5FAE\8F6F\96C5\9ED1;font-size:8px;color:blue;
+        text-decoration: underline;}
+        .version-title{width: 100%;height: 35px;border-bottom:1px solid #dee2e6;font-size: 1.17em;font-family: \5FAE\8F6F\96C5\9ED1;margin-left: 10px;
+        position: relative;margin-top: 15px;}
+        .photo_version{margin-top: 10px;margin-left: 20px;}
+        .message_bottom{width: 712px;height: 182px;}
+        .title_video{width: 100%;height: 35px;font-size: 1.17em;border-bottom:1px solid #dee2e6;
+        font-family:\5FAE\8F6F\96C5\9ED1;margin-left: 15px;position: relative; }
+        .title3 li{display: block; width: 117px;height: 36px;float: left;text-align: center;font-size: 14px;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;margin-top: 10px;}
+        .title3 li:hover{display: block; width: 117px;height: 36px;float: left;text-align: center;font-size: 14px;font-weight: bold;
+        font-family: \5FAE\8F6F\96C5\9ED1;margin-top: 10px;color:green;}
+        .video-list li{width: 168px;height: 128px;float: left;margin-left: 10px;margin-top: 20px;}
+        .video-list img{width: auto;height: auto; max-width: 100%;max-height: 100%;border-radius: 15%;}
+        .video-list i{font-size: 8px; font-family: \5FAE\8F6F\96C5\9ED1;}
+        .video-list i:hover{font-size: 8px; font-family: \5FAE\8F6F\96C5\9ED1;color: blue;text-decoration: underline;}
+    </style>
+</head>
+<body>
+    <div id="head" class="container-fluid ">
+        <div class="container">
+            <div class="head_logo l">
+                <a href="#"><img src="./logo.png" alt=""></a>
+            </div>
+            <div class="head_ad l">
+                <a href="#"><img src="./f16825eddbe73bbedfc05ecbb8aef1a3.jpg" alt=""></a>
+            </div>
+            <div class="czsh l">
+                <a href="#">成长守护平台</a>
+                <img src="./title_sprite.png" alt="">
+            </div>
+            <div class="ranking l">
+                <a href="#">腾讯游戏排行榜</a>
+            </div>
+        </div>
+    </div>
+    <div id="page">
+        <div id="content" class="container-fluid">
+            <div class="zz">
+                <div class="nav1">
+                    <div class="ctlogo">
+                        <a href="#">
+                            <img src="./oip.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="nav l" style="margin-left: 87px;">
+                        <ul class="list1">
+                            <li><a href="#">新手指引</a> </li>
+                            <li><a href="#">官方漫画</a></li>
+                            <li><a href="#">飞车手游</a></li>
+                            <li><a href="#">精美壁纸</a></li>
+                            <li><a href="#">游戏下载</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav l" style="margin-left: 8px;"> 
+                            <ul class="list1">
+                            <li><a href="#">谁是车王</a> </li>
+                            <li><a href="#">SSC</a></li>
+                            <li><a href="#">全国公开赛</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav l" style="margin-left: 25px;">
+                        <ul class="list1">
+                            <li><a href="#">版本专区</a></li>
+                            <li><a href="#">合作专区</a></li>
+                            <li><a href="#">CDK兑换</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav l" style="margin-left:140px;">
+                        <ul>
+                            <li><a href="#">紫钻专区</a></li>
+                            <li><a href="#">道聚城</a></li>
+                            <li><a href="#">点券充值</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav l"  style="margin-left:20px;">
+                        <ul class="list1">
+                            <li><a href="#">教学视频</a></li>
+                            <li><a href="#">视频中心</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav l"  style="margin-left:13px;">
+                        <ul class="list1">
+                            <li><a href="#">官方论坛</a></li>
+                            <li><a href="#">掌上飞车</a></li>
+                            <li><a href="#">兴趣部落</a></li>
+                            <li><a href="#">官网微信</a></li>
+                            <li><a href="#">官方微博</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav l"  style="margin-left:5px;">
+                        <ul class="list1">
+                            <li><a href="#">客服中心</a></li>
+                            <li><a href="#">安全信用体系</a></li>
+                            <li><a href="#">封号查询</a></li>
+                            <li><a href="#">游戏安全测评</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="link">
+                <a href="#"></a>
+            </div>
+            <div id="banner" class="container">
+                <div class="banner_left l">
+                    <div class="banner_left_t">
+                        <p>下载游戏</p>
+                    </div>
+                    <div class="banner_left_b">
+                        <img src="./56x56.jpg" alt="">
+                        <p>欢迎<span>登陆</span>，进入飞车世界</p>
+                    </div>
+                    
+                </div>
+                <div class="banner_center l">
+                    <div class="banner_list">
+                        <ul class="banner_list_ul">
+                            <li><a href="#"><img src="./banner1.png" alt=""></a></li>
+                            <li><a href="#"><img src="./5.jpeg" alt=""></a></li>
+                            <li><a href="#"><img src="./6.jpeg" alt=""></a></li>
+                            <li><a href="#"><img src="./7.jpeg" alt=""></a></li>
+                        </ul>
+                        <div class="zz1">
+                            <ul class="zz1_ul">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <div class="banner_left-btn"></div>
+                            <div class="banner_right-btn"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner_right l">
+                    <a href="#"><img src="./banner_right.jpeg" alt=""></a>
+                </div>
+                
+            </div>
+        </div>
+        <div id="message" class="container">
+            <div class="message_left l">
+                <div class="message_left-top">
+                    <a href="#"></a>
+                    <div class="logo2"></div>
+                    <div class="logo3"></div>
+                </div>
+                <div class="border-top"></div>
+                <div class="border-bottom"></div>
+                <div class="message_left-center">
+                    <ul>
+                        <li><a href="#">点券充值</a></li>
+                        <li><a href="#">视频中心</a></li>
+                        <li><a href="#">开通紫钻</a></li>
+                        <li><a href="#">官方论坛</a></li>  
+                    </ul>  
+                </div>
+                <div class="message_left-bottom">
+                    <ul>
+                        <li><a href="#">道聚城</a></li>
+                        <li><a href="#">SSC联赛</a></li>
+                        <li><a href="#">补丁下载</a></li>
+                        <li><a href="#">新手礼包</a></li>
+                        <li><a href="#">CDK兑换</a></li>
+                        <li><a href="#">官方微信</a></li>
+                        <li><a href="#">掌上飞车</a></li>
+                        <li><a href="#">官方漫画</a></li>
+                        <li><a href="#">合作专区</a></li>
+                    </ul>
+                </div>
+                <div class="kfzx"></div>
+                <div class="message_left-cfzx">
+                    <li><a href="#">封号查询</a></li>
+                    <li><a href="#">密码找回</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">玩家条例</a></li>
+                    <li><a href="#">安全中心</a></li>
+                    <li><a href="#">防沉迷</a></li>
+                    <li><a href="#">家长监控</a></li>
+                    <li><a href="#">点亮皇族</a></li>
+                </div>
+                <a href="#"><div class="qqkf"></div></a>
+                <a href="#"><div class="zd1"><span>QQ飞车合作媒体站点</span></div></a>
+                <a href="#"><div class="zd2"><span>QQ飞车合作伙伴站点</span></div></a>
+            </div>
+            <div class="message_right l">
+                <div class="news">
+                    <div class="news_title">
+                        <h3>新闻</h3>
+                        <div><a href="#">更多+</a></div>
+                    </div>
+                    <div class="title1">
+                        <ul>
+                            <li>综合</li>
+                            <li>活动</li>
+                            <li>公告</li>
+                            <li>赛事</li>
+                            <li>论坛</li>
+                        </ul>
+                    </div>
+                    <div class="news_content">
+                        <ul>
+                            <li>
+                                <p><span  class="start1">[公告]</span><a href="#">12月8日不停机更新公告</a> <span class="date1">12/05</span></p>
+                            </li>  
+                            <li>
+                                <p><span class="start1">[活动]</span><a href="#">12月每周签到精彩来袭 海量点券+极品A车等你来！</a><span class="date1">12/05</span></p>
+                            </li>
+                            <li>
+                                <p><span class="start1">[SSC]</span><a href="#">SSC2020秋季总决赛 怪咖Guaik大分2:1挺进冠军赛</a><span class="date1">12/05</span></p>
+                            </li> 
+                            <li>
+                                <p><span class="start1">[SSC]</span><a href="#">SSC2020秋季总决赛 魅丶风采的家晋级冠军赛</a><span class="date1">12/05</span></p>
+                            </li> 
+                            <li>
+                                <p><span class="start1">[SSC]</span><a href="#">SSC2020秋季总决赛 车队道具八进四结果一览</a><span class="date1">12/05</span></p>
+                            </li>  
+                            <li>
+                                <p><span class="start1">[SSC]</span><a href="#">SSC2020秋季总决赛 个人竞速赛前瞻</a><span class="date1">12/05</span></p>
+                            </li> 
+                        
+                        </ul>
+                    </div>
+                </div>
+                <div class="competition">
+                    <div class="competition_title">
+                        <h3>赛事</h3>
+                    </div>
+                </div>
+                <div class="title2">
+                    <ul>
+                        <li>谁是车王</li>
+                        <li>全国共开赛</li>
+                        <li>SSC</li>
+                    </ul>
+                </div>
+                <div class="competition-content l">
+                    <div class="competition-photo l">
+                        <img src="./competition.jpeg" alt="">
+                    </div>
+                    <div class="competition-article l">
+                        <ul>
+                            <li>
+                                <p><a href="#">谁是车王S10热身赛火热进行中 虎牙直播精彩放...</a> <span class="date2">12/05</span></p>
+                            </li>  
+                            <li>
+                                <p><a href="#">直播平台冠军赛总决赛 江章闯勇夺决赛冠军</a><span class="date2">12/05</span></p>
+                            </li>
+                            <li>
+                                <p><a href="#">直播平台冠军赛总决赛预告 28日晚5点半锁定直</a><span class="date2">12/05</span></p>
+                            </li> 
+                            <li>
+                                <p><a href="#">直播平台冠军赛虎牙决赛 江章闯摘夺桂冠</a><span class="date2">12/05</span></p>
+                            </li>  
+                            <li>
+                                <p><a href="#">直播平台冠军赛斗鱼决赛 战况焦灼胡旭问鼎</a><span class="date2">12/05</span></p>
+                            </li> 
+                        
+                        </ul>
+                    </div>
+                </div>
+                <div class="video"></div>
+            </div>
+            <div class="message_rightmore l">
+                <div class="activity">
+                    <div class="title_activity">
+                        <h3>活动</h3>
+                    </div>
+                    <div class="photo_activity">
+                        <ul>
+                            <li><a href="#"><img src="./hd1.jpeg" alt=""></a></li>
+                            <li><a href="#"><img src="./hd2.jpeg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="version">
+                    <div class="version-title">
+                        <h3>版本相关</h3>
+                    </div>
+                    <div class="photo_version">
+                        <ul>
+                            <li><a href="#"><img src="./version1.jpeg" alt=""></a></li>
+                            <li><a href="#"><img src="./version2.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="message_bottom l">
+                <div class="title_video">
+                    <h3>视频</h3>
+                </div>
+                <div class="title3">
+                    <ul>
+                        <li>最新</li>
+                        <li>推荐</li>
+                        <li>教学</li>
+                        <li>赛事</li>
+                        <li>赛车</li>
+                        <li>官方</li>
+                    </ul>
+                </div>
+                <div class="video-list">
+                    <ul>
+                        <li><a href="#"><img src="./0 (1).jpg" alt=""> <i>【极限之王原装版】荆楚丶清</i></a></li>
+                        <li><a href="#"><img src="./0 (2).jpg" alt=""> <i>【极限之王原装版】荆楚丶清</i></a></li>
+                        <li><a href="#"><img src="./0.png" alt=""> <i>【极限之王原装版】荆楚丶清</i></a></li>
+                        <li><a href="#"><img src="./3.png" alt=""> <i>【极限之王原装版】荆楚丶清</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
